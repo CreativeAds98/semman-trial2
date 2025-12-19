@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semman - The Native Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        semman: {
+                            base: '#fbf8f3',   /* Light Cream Background */
+                            rust: '#c05829',   /* The Orange from your Logo */
+                            rustDark: '#a04620',
+                            brown: '#5d4037',  /* Dark Earthy Brown for text */
+                            green: '#3e5c35',  /* Nature Green for accents */
+                            light: '#eaddcf',   /* Light Beige for cards */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar for horizontal scrolling areas */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-semman-base text-semman-brown font-sans antialiased">
+      
+    
+    <div class="bg-semman-green text-white text-xs md:text-sm py-2 text-center font-medium tracking-wide">
+        <p>🌾 Native Fest is LIVE NOW! Get 12% OFF on traditional grains | Use Code: </p>
+    </div>
+
+    <header class="border-b border-gray-200 sticky top-0 z-50 bg-semman-base shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            
+            <div class="hidden md:flex items-center border border-gray-400 rounded px-3 py-2 w-1/4 focus-within:border-semman-rust transition-colors">
+                <i class="fa-solid fa-magnifying-glass text-gray-500 mr-2"></i>
+                <input type="text" placeholder="Search for native products..." class="bg-transparent outline-none w-full text-sm text-semman-brown placeholder-gray-500">
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-semman-brown">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="flex-grow text-center">
+                <img src="assets/eng-logo.png" alt="Semman Natural Store" class="h-32 mx-auto object-contain">
+            </div>
+
+            <div class="flex items-center space-x-6 w-1/4 justify-end">
+                <a href="#" class="flex flex-col items-center group">
+                    <i class="fa-regular fa-user text-xl group-hover:text-semman-rust transition"></i>
+                </a>
+                <a href="#" class="flex flex-col items-center group relative">
+                    <i class="fa-regular fa-heart text-xl group-hover:text-semman-rust transition"></i>
+                    <span class="absolute -top-2 -right-2 bg-semman-rust text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </a>
+                <a href="#" class="flex flex-col items-center group relative">
+                    <i class="fa-solid fa-bag-shopping text-xl group-hover:text-semman-rust transition"></i>
+                    <span class="absolute -top-2 -right-2 bg-semman-green text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">1</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex justify-center items-center py-3 space-x-8 text-sm font-semibold tracking-wide border-t border-gray-100">
+            <a href="index.html" class="flex items-center hover:text-semman-rust transition"><i class="fa-solid fa-bottle-droplet mr-2 text-semman-rust"></i> HOME</a>
+            <a href="shop.html" class="flex items-center hover:text-semman-rust transition">SHOP BY CATEGORY <i class="fa-solid fa-chevron-down ml-1 text-xs"></i></a>
+            <a href="story.html" class="hover:text-semman-rust transition">OUR STORY</a>
+            <a href="contact.html" class="flex items-center hover:text-semman-rust transition">CONTACT</a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-semman-base w-3/4 h-full shadow-lg p-5 transform transition-transform duration-300 -translate-x-full" id="mobile-menu-panel">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="font-serif font-bold text-xl text-semman-rust">Semman Store</h2>
+                <button id="close-menu-btn" class="text-2xl"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <ul class="space-y-4 font-medium">
+                <li><a href="index.html" class="block py-2 border-b border-gray-200">Home</a></li>
+                <li><a href="shop.html" class="block py-2 border-b border-gray-200">Shop</a></li>
+                <li><a href="story.html" class="block py-2 border-b border-gray-200">Our Story</a></li>
+                <li><a href="contact.html" class="block py-2 border-b border-gray-200">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+<section class="relative bg-gradient-to-r from-[#fbf8f3] via-[#fffbf2] to-white overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-orange-100 opacity-40 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-green-50 opacity-40 blur-3xl"></div>
+
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                
+                <div class="w-full md:w-1/2 space-y-6 text-center md:text-left animate-fade-in-up">
+                    <div class="inline-flex items-center px-3 py-1 bg-green-100 text-semman-green text-xs font-bold tracking-widest rounded-full uppercase mb-2 border border-green-200">
+                        <i class="fa-solid fa-leaf mr-2"></i> 100% Natural & Chemical Free
+                    </div>
+                    
+                    <h1 class="font-serif text-4xl md:text-6xl font-bold text-semman-brown leading-tight">
+                        Bring the <span class="text-semman-rust relative inline-block">
+                            Village Purity
+                            <svg class="absolute w-full h-3 -bottom-1 left-0 text-orange-200" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="3" fill="none" /></svg>
+                        </span> <br>to Your Kitchen.
+                    </h1>
+                    
+                    <p class="text-gray-600 text-lg md:text-xl max-w-lg mx-auto md:mx-0 leading-relaxed">
+                        Authentic wood-pressed oils, A2 ghee, and native groceries sourced directly from conscious farmers in Tamil Nadu.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-6">
+                        <a href="shop.html" class="px-8 py-4 bg-semman-rust text-white font-bold rounded-lg shadow-lg hover:bg-[#a04620] transition transform hover:-translate-y-1 text-center flex items-center justify-center">
+                            Shop Essentials <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#native-club" class="px-8 py-4 bg-white border-2 border-semman-rust text-semman-rust font-bold rounded-lg hover:bg-orange-50 transition text-center">
+                            Join Native Club
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center justify-center md:justify-start gap-8 pt-8 text-sm font-medium text-gray-500 border-t border-gray-200 mt-8">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-orange-100 p-2 rounded-full text-semman-rust"><i class="fa-solid fa-flask"></i></div>
+                            <span>Lab Tested</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="bg-green-100 p-2 rounded-full text-semman-green"><i class="fa-solid fa-seedling"></i></div>
+                            <span>No Preservatives</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="bg-blue-100 p-2 rounded-full text-blue-600"><i class="fa-solid fa-truck-fast"></i></div>
+                            <span>Pan India Shipping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 relative">
+                    <div class="relative z-10 duration-700 hover:scale-[1.02] transition-transform">
+                         <img src="assets/hero.png" alt="Semman Organic Products" class="w-full object-contain drop-shadow-2xl rounded-2xl">
+                    </div>
+                    
+                    <div class="absolute -top-6 -right-6 md:top-10 md:right-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-xl z-20 border border-gray-100 animate-bounce" style="animation-duration: 3s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-yellow-100 p-3 rounded-full text-yellow-700">
+                                <i class="fa-solid fa-star text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Rated</p>
+                                <p class="font-bold text-semman-brown">4.9/5 Stars</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-6 -left-6 md:bottom-10 md:left-0 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-xl z-20 border border-gray-100 animate-bounce" style="animation-duration: 4s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-semman-rust p-3 rounded-full text-white">
+                                <i class="fa-solid fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Trusted by</p>
+                                <p class="font-bold text-semman-brown">10k+ Families</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#faf7f2] py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-8">
+                <div class="relative">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-semman-brown z-10 relative">Most Loved</h2>
+                    <div class="h-3 w-full bg-orange-200 opacity-50 absolute bottom-1 left-0 -z-0 rounded-full"></div>
+                </div>
+                <button class="bg-semman-rust hover:bg-semman-rustDark text-white px-6 py-2 rounded-lg font-bold shadow-md transition">
+                    Shop More
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+                    <div class="relative h-64 bg-[#efebe4] flex items-center justify-center p-4">
+                        <span class="absolute top-3 left-3 bg-semman-green text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Best Seller | <i class="fa-regular fa-heart"></i></span>
+                        <button class="absolute top-3 right-3 text-white hover:text-semman-rust transition"><i class="fa-regular fa-heart text-xl drop-shadow-md"></i></button>
+                        <img src="assets/products/coconut-oil.png" class="h-40 object-contain mix-blend-multiply group-hover:scale-105 transition duration-500" alt="Coconut Oil">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-lg text-semman-brown leading-tight">Cold Pressed Coconut Oil</h3>
+                            <span class="font-bold text-semman-brown">₹</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">500ml | Traditional Wooden Press</p>
+                        <div class="flex items-center mb-3">
+                            <div class="text-yellow-500 text-xs mr-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <span class="text-xs text-gray-400">(2.1k+ Reviews)</span>
+                        </div>
+                        <button class="w-full border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+                    <div class="relative h-64 bg-[#fffbe6] flex items-center justify-center p-4">
+                        <span class="absolute top-3 left-3 bg-semman-brown text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Premium | <i class="fa-regular fa-heart"></i></span>
+                        <button class="absolute top-3 right-3 text-white hover:text-semman-rust transition"><i class="fa-regular fa-heart text-xl drop-shadow-md"></i></button>
+                        <img src="assets/products/buffalo-ghee.png" class="h-40 object-contain mix-blend-multiply group-hover:scale-105 transition duration-500" alt="Buffalo Ghee">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-lg text-semman-brown leading-tight">Premium Buffalo Ghee</h3>
+                            <span class="font-bold text-semman-brown">₹</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">500ml | Rich Texture & Aroma</p>
+                        <div class="flex items-center mb-3">
+                            <div class="text-yellow-500 text-xs mr-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-400">(1.5k+ Reviews)</span>
+                        </div>
+                        <button class="w-full border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+                    <div class="relative h-64 bg-[#e8e0d5] flex items-center justify-center p-4">
+                        <span class="absolute top-3 left-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Trending | <i class="fa-regular fa-heart"></i></span>
+                        <button class="absolute top-3 right-3 text-white hover:text-semman-rust transition"><i class="fa-regular fa-heart text-xl drop-shadow-md"></i></button>
+                        <img src="assets/products/healthmix.png" class="h-40 object-contain mix-blend-multiply group-hover:scale-105 transition duration-500" alt="Health Mix">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-lg text-semman-brown leading-tight">Traditional Health Mix</h3>
+                            <span class="font-bold text-semman-brown">₹</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">500g | Millet & Nut Blend</p>
+                        <div class="flex items-center mb-3">
+                            <div class="text-yellow-500 text-xs mr-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-400">(416 Reviews)</span>
+                        </div>
+                        <button class="w-full border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+                    <div class="relative h-64 bg-[#fffaf0] flex items-center justify-center p-4">
+                        <span class="absolute top-3 left-3 bg-semman-green text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">New Launch | <i class="fa-regular fa-heart"></i></span>
+                        <button class="absolute top-3 right-3 text-white hover:text-semman-rust transition"><i class="fa-regular fa-heart text-xl drop-shadow-md"></i></button>
+                        <img src="assets/products/coriandel-powder.png" class="h-40 object-contain mix-blend-multiply group-hover:scale-105 transition duration-500" alt="Pasu Manjal">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-lg text-semman-brown leading-tight">Pure Pasu Manjal</h3>
+                            <span class="font-bold text-semman-brown">₹</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">100g | Wild Turmeric for Skin</p>
+                        <div class="flex items-center mb-3">
+                            <div class="text-yellow-500 text-xs mr-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-400">(19 Reviews)</span>
+                        </div>
+                        <button class="w-full border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center text-semman-rust text-2xl mb-4 group-hover:bg-semman-rust group-hover:text-white transition">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <h4 class="font-bold text-semman-brown">Chemical Free</h4>
+                    <p class="text-sm text-gray-500 mt-1">Lab tested for purity</p>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-semman-green text-2xl mb-4 group-hover:bg-semman-green group-hover:text-white transition">
+                        <i class="fa-solid fa-hand-holding-hand"></i>
+                    </div>
+                    <h4 class="font-bold text-semman-brown">Fair Trade</h4>
+                    <p class="text-sm text-gray-500 mt-1">Direct from farmers</p>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-700 text-2xl mb-4 group-hover:bg-yellow-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                    </div>
+                    <h4 class="font-bold text-semman-brown">Traditional</h4>
+                    <p class="text-sm text-gray-500 mt-1">Ancient processing methods</p>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-2xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-bold text-semman-brown">Global Shipping</h4>
+                    <p class="text-sm text-gray-500 mt-1">Delivered to your doorstep</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-semman-base">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 relative">
+                    <div class="absolute top-4 left-4 w-full h-full border-2 border-semman-rust rounded-2xl z-0"></div>
+                    <img src="assets/story.png" alt="About Semman" class="relative z-10 rounded-2xl shadow-xl w-full">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg z-20 hidden md:block">
+                        <p class="text-semman-brown font-bold text-xl">1500+</p>
+                        <p class="text-xs text-gray-500">Farmers Empowered</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-semman-rust font-bold tracking-widest text-sm uppercase">Our Story</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-semman-brown mt-2 mb-6">Rooted in Red Soil</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "Semman" refers to the rich red soil of our native land. We started with a simple mission: to bridge the gap between conscious farmers and mindful consumers. Every product on our shelf tells a story of tradition, hard work, and the rhythm of nature.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        We don't just sell groceries; we revive lost habits. From stone-ground flours to wood-pressed oils, we bring the village kitchen back to your modern home.
+                    </p>
+                    <a href="about.html" class="inline-block border-b-2 border-semman-rust text-semman-rust font-bold pb-1 hover:text-semman-brown hover:border-semman-brown transition">Read the Full Story <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-[#3e5c35] relative overflow-hidden">
+        <i class="fa-solid fa-quote-right absolute top-10 right-10 text-9xl text-white opacity-10"></i>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl font-serif font-bold text-white text-center mb-12">From Our Kitchen to Yours</h2>
+            
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg flex-1 transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-yellow-500 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"The A2 Ghee aroma took me back to my grandmother's house. The quality is visibly different from store-bought brands. Truly authentic."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500 mr-3">SK</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-semman-brown">Senthil Kumar</h4>
+                            <p class="text-xs text-gray-400">Chennai</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex-1 transform hover:-translate-y-2 transition duration-300 mt-4 md:mt-0">
+                    <div class="text-yellow-500 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Switched to Semman's millet noodles for my kids. They love the taste, and I love that it's chemical-free. Fast delivery too!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500 mr-3">AL</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-semman-brown">Anitha L</h4>
+                            <p class="text-xs text-gray-400">Coimbatore</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex-1 transform hover:-translate-y-2 transition duration-300 mt-4 md:mt-0">
+                    <div class="text-yellow-500 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Excellent packaging and the Seeraga Samba rice made the best biryani I've cooked in years. Highly recommended."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500 mr-3">RM</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-semman-brown">Rahul M</h4>
+                            <p class="text-xs text-gray-400">Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="border border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-semman-green transition font-bold">Read All Reviews</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-semman-brown text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-serif text-xl font-bold mb-4 text-semman-rust">Semman</h3>
+                <p class="text-sm text-gray-300 leading-relaxed">Bringing the goodness of native soil to your dining table. Pure, Authentic, and Traditional.</p>
+                <div class="text-xs text-gray-400 space-y-2 mt-4">
+                    <p><strong class="text-gray-200">Mfg & Mkd By:</strong><br>Semman Native Store</p>
+                    <p><i class="fa-solid fa-location-dot mr-1"></i> 2/193-A, Srinivasa Nagar, Pattanam Pudur, Pattanam (PO), Coimbatore – 641 016</p>
+                    <p><i class="fa-solid fa-phone mr-1"></i> 99946 43232</p>
+                    <p><i class="fa-solid fa-envelope mr-1"></i> semmannnativestore@gmail.com</p>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li><a href="shop.html" class="hover:text-semman-rust">Shop All</a></li>
+                    <li><a href="about.html" class="hover:text-semman-rust">Our Story</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Track Order</a></li>
+                    <li><a href="contact.html" class="hover:text-semman-rust">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Categories</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li><a href="#" class="hover:text-semman-rust">Cold Pressed Oils</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Native Rice</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Millets</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Spices & Masalas</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Stay Connected</h4>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p class="text-xs text-gray-400">&copy; 2025 Semman Natural Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            // Small delay to allow display:block to apply before transform
+            setTimeout(() => {
+                mobileMenuPanel.classList.remove('-translate-x-full');
+            }, 10);
+        });
+
+        const closeMenu = () => {
+            mobileMenuPanel.classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        };
+
+        closeMenuBtn.addEventListener('click', closeMenu);
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) closeMenu();
+        });
+    </script>
+</body>
+</html>

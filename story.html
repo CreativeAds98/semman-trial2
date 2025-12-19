@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Semman Natural Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        semman: {
+                            base: '#fbf8f3',
+                            rust: '#c05829',
+                            brown: '#5d4037',
+                            green: '#3e5c35',
+                            light: '#eaddcf'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-semman-base text-semman-brown font-sans antialiased">
+   
+    
+    <div class="bg-semman-green text-white text-xs md:text-sm py-2 text-center font-medium tracking-wide">
+        <p>🌾 Native Fest is LIVE NOW! Get 12% OFF on traditional grains | Use Code: </p>
+    </div>
+    <header class="border-b border-gray-200 sticky top-0 z-50 bg-semman-base shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="hidden md:flex items-center border border-gray-400 rounded px-3 py-2 w-1/4 focus-within:border-semman-rust transition-colors">
+                <i class="fa-solid fa-magnifying-glass text-gray-500 mr-2"></i>
+                <input type="text" placeholder="Search..." class="bg-transparent outline-none w-full text-sm text-semman-brown placeholder-gray-500">
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-semman-brown">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="flex-grow text-center flex justify-center items-center">
+                <a href="index.html" class="flex items-center justify-center">
+                    <img src="assets/eng-logo.png" alt="Semman Logo" class="h-32 ml-2 object-contain">
+                </a>
+            </div>
+            <div class="flex items-center space-x-6 w-1/4 justify-end">
+                <a href="#"><i class="fa-regular fa-user text-xl group-hover:text-semman-rust transition"></i></a>
+                <a href="#"><i class="fa-regular fa-heart text-xl group-hover:text-semman-rust transition"></i></a>
+                <a href="#"><i class="fa-solid fa-bag-shopping text-xl group-hover:text-semman-rust transition"></i></a>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex justify-center items-center py-3 space-x-8 text-sm font-semibold tracking-wide border-t border-gray-100">
+            <a href="index.html" class="flex items-center hover:text-semman-rust transition"><i class="fa-solid fa-bottle-droplet mr-2 text-semman-rust"></i> HOME</a>
+            <a href="shop.html" class="flex items-center hover:text-semman-rust transition">SHOP BY CATEGORY <i class="fa-solid fa-chevron-down ml-1 text-xs"></i></a>
+            <a href="story.html" class="text-semman-rust font-bold">OUR STORY</a>
+            <a href="contact.html" class="flex items-center hover:text-semman-rust transition">CONTACT</a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-semman-base w-3/4 h-full shadow-lg p-5 transform transition-transform duration-300 -translate-x-full" id="mobile-menu-panel">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="font-serif font-bold text-xl text-semman-rust">Semman Store</h2>
+                <button id="close-menu-btn" class="text-2xl"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <ul class="space-y-4 font-medium">
+                <li><a href="index.html" class="block py-2 border-b border-gray-200">Home</a></li>
+                <li><a href="shop.html" class="block py-2 border-b border-gray-200">Shop All</a></li>
+                <li><a href="story.html" class="block py-2 border-b border-gray-200 text-semman-rust">Our Story</a></li>
+                <li><a href="contact.html" class="block py-2 border-b border-gray-200">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="relative h-[450px] bg-cover bg-center flex items-center justify-center text-center" style="background-image: linear-gradient(rgba(62, 92, 53, 0.6), rgba(93, 64, 55, 0.6)), url('http://googleusercontent.com/image_collection/image_retrieval/17140587630644432865_0');">
+        <div class="text-white px-4 max-w-3xl">
+            <span class="uppercase tracking-[0.2em] text-sm font-bold text-orange-200 mb-2 block">The Semman Journey</span>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">Reclaiming Our Roots</h1>
+            <p class="text-lg md:text-xl font-light text-gray-100 drop-shadow-md">A journey back to the red soil ("Semman") where tradition meets purity, and every grain tells a story.</p>
+        </div>
+    </div>
+
+    <section class="container mx-auto px-4 py-20">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            
+            <div class="w-full md:w-1/2">
+                <img src="assets/story2.png" alt="Our Story" class="rounded-xl shadow-lg w-full h-auto object-cover">
+            </div>
+
+            <div class="w-full md:w-1/2">
+                <div class="flex items-center mb-4">
+                    <div class="h-[2px] w-12 bg-semman-rust mr-4"></div>
+                    <span class="text-semman-rust font-bold tracking-widest text-sm uppercase">Who We Are</span>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-semman-brown mb-6">Born from the Soil</h2>
+                
+                <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                    "Semman" isn't just a name; it refers to the nutrient-rich red soil of our native Tamil Nadu. It is the soil that sustained our ancestors and grew the grains that kept them strong.
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    We started with a simple question: <strong>Where has the real taste gone?</strong> In a world of mass production, we missed the aroma of hand-pounded rice and the purity of wood-pressed oils. We set out to find the farmers who still held on to the old ways.
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Today, Semman is a bridge between 50+ conscious farming families and thousands of homes that value health. We don't use chemicals. We don't take shortcuts. We simply deliver nature, packaged with love.
+                </p>
+
+                <div class="border-l-4 border-semman-green pl-6 py-2 bg-gray-50 rounded-r-lg">
+                    <p class="italic text-semman-brown font-medium">"We believe that food is the most primitive form of comfort. It should heal, not harm."</p>
+                    <p class="text-sm text-semman-rust font-bold mt-2">- The Founders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#efebe4] py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-serif font-bold text-semman-brown mb-4">The Semman Standard</h2>
+                <p class="text-gray-600">We follow a strict "Farm to Fork" policy to ensure that what reaches your table is nothing short of the best.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 text-center border-t-4 border-semman-rust">
+                    <div class="w-20 h-20 mx-auto bg-orange-100 rounded-full flex items-center justify-center text-semman-rust text-3xl mb-6">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-semman-brown mb-3">Native Seeds Only</h3>
+                    <p class="text-gray-600 leading-relaxed">We strictly use indigenous heirloom seeds. No GMOs, no hybrids. We preserve the biodiversity of our land.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 text-center border-t-4 border-semman-green">
+                    <div class="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center text-semman-green text-3xl mb-6">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-semman-brown mb-3">Zero Toxins, 100% Trust</h3>
+                    <p class="text-gray-600 leading-relaxed">From soil to spoon, we ensure zero chemical residue. Our crops are nourished with traditional methods & undergo strict lab testing to guarantee they are safe for your family.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 text-center border-t-4 border-semman-brown">
+                    <div class="w-20 h-20 mx-auto bg-orange-50 rounded-full flex items-center justify-center text-semman-brown text-3xl mb-6">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-semman-brown mb-3">Fair Trade</h3>
+                    <p class="text-gray-600 leading-relaxed">We cut out the middlemen. We pay our farmers above-market rates to ensure their livelihood is dignified.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-semman-rust text-white py-16">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl md:text-5xl font-bold font-serif mb-2">5+</div>
+                <div class="text-orange-200 text-sm tracking-wider uppercase">Years of Journey</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold font-serif mb-2">50+</div>
+                <div class="text-orange-200 text-sm tracking-wider uppercase">Partner Farmers</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold font-serif mb-2">120+</div>
+                <div class="text-orange-200 text-sm tracking-wider uppercase">Natural Products</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold font-serif mb-2">10k+</div>
+                <div class="text-orange-200 text-sm tracking-wider uppercase">Happy Families</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-semman-brown text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-serif text-xl font-bold mb-4 text-semman-rust">Semman</h3>
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">Bringing the goodness of native soil to your dining table. Pure, Authentic, and Traditional.</p>
+                <div class="text-xs text-gray-400 space-y-2">
+                    <p><strong class="text-gray-200">Mfg & Mkd By:</strong><br>Semman Native Store</p>
+                    <p><i class="fa-solid fa-location-dot mr-1"></i> 2/193-A, Srinivasa Nagar, Pattanam Pudur, Pattanam (PO), Coimbatore – 641 016</p>
+                    <p><i class="fa-solid fa-phone mr-1"></i> 99946 43232</p>
+                    <p><i class="fa-solid fa-envelope mr-1"></i> semmannnativestore@gmail.com</p>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li><a href="shop.html" class="hover:text-semman-rust">Shop All</a></li>
+                    <li><a href="story.html" class="hover:text-semman-rust">Our Story</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Track Order</a></li>
+                    <li><a href="contact.html" class="hover:text-semman-rust">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Categories</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li><a href="#" class="hover:text-semman-rust">Cold Pressed Oils</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Ghee & Dairy</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Flours & Spices</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Skincare</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Stay Connected</h4>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p class="text-xs text-gray-400">&copy; 2025 Semman Natural Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => { mobileMenuPanel.classList.remove('-translate-x-full'); }, 10);
+            });
+        }
+
+        const closeMenu = () => {
+            mobileMenuPanel.classList.add('-translate-x-full');
+            setTimeout(() => { mobileMenu.classList.add('hidden'); }, 300);
+        };
+
+        if(closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+        if(mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMenu(); });
+    </script>
+</body>
+</html>

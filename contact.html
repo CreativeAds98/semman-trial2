@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Semman Natural Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        semman: {
+                            base: '#fbf8f3',
+                            rust: '#c05829',
+                            brown: '#5d4037',
+                            green: '#3e5c35',
+                            light: '#eaddcf'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-semman-base text-semman-brown font-sans antialiased">
+
+    <div class="bg-semman-green text-white text-xs md:text-sm py-2 text-center font-medium tracking-wide">
+        <p>🌾 Native Fest is LIVE NOW! Get 12% OFF on traditional grains | Use Code: </p>
+    </div>
+
+    <header class="border-b border-gray-200 sticky top-0 z-50 bg-semman-base shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="hidden md:flex items-center border border-gray-400 rounded px-3 py-2 w-1/4 focus-within:border-semman-rust transition-colors">
+                <i class="fa-solid fa-magnifying-glass text-gray-500 mr-2"></i>
+                <input type="text" placeholder="Search for native products..." class="bg-transparent outline-none w-full text-sm text-semman-brown placeholder-gray-500">
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-semman-brown">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="flex-grow text-center flex justify-center items-center">
+                <a href="index.html" class="flex items-center justify-center">
+                    <img src="assets/eng-logo.png" alt="Semman Logo" class="h-32 ml-2 object-contain">
+                </a>
+            </div>
+            <div class="flex items-center space-x-6 w-1/4 justify-end">
+                <a href="#" class="flex flex-col items-center group"><i class="fa-regular fa-user text-xl group-hover:text-semman-rust transition"></i></a>
+                <a href="#" class="flex flex-col items-center group relative"><i class="fa-regular fa-heart text-xl group-hover:text-semman-rust transition"></i><span class="absolute -top-2 -right-2 bg-semman-rust text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span></a>
+                <a href="#" class="flex flex-col items-center group relative"><i class="fa-solid fa-bag-shopping text-xl group-hover:text-semman-rust transition"></i><span class="absolute -top-2 -right-2 bg-semman-green text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">1</span></a>
+            </div>
+        </div>
+
+        <nav class="hidden md:flex justify-center items-center py-3 space-x-8 text-sm font-semibold tracking-wide border-t border-gray-100">
+            <a href="index.html" class="flex items-center hover:text-semman-rust transition"><i class="fa-solid fa-bottle-droplet mr-2 text-semman-rust"></i> HOME</a>
+            <a href="shop.html" class="flex items-center hover:text-semman-rust transition">SHOP BY CATEGORY <i class="fa-solid fa-chevron-down ml-1 text-xs"></i></a>
+            <a href="story.html" class="hover:text-semman-rust transition">OUR STORY</a>
+            <a href="contact.html" class="flex items-center text-semman-rust font-bold">CONTACT</a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-semman-base w-3/4 h-full shadow-lg p-5 transform transition-transform duration-300 -translate-x-full" id="mobile-menu-panel">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="font-serif font-bold text-xl text-semman-rust">Semman Store</h2>
+                <button id="close-menu-btn" class="text-2xl"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <ul class="space-y-4 font-medium">
+                <li><a href="index.html" class="block py-2 border-b border-gray-200">Home</a></li>
+                <li><a href="shop.html" class="block py-2 border-b border-gray-200">Shop All</a></li>
+                <li><a href="story.html" class="block py-2 border-b border-gray-200">Our Story</a></li>
+                <li><a href="contact.html" class="block py-2 border-b border-gray-200 text-semman-rust">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-semman-green text-white py-12 text-center">
+        <h1 class="font-serif text-4xl font-bold tracking-wide">Get in Touch</h1>
+        <p class="mt-2 text-gray-200 text-sm md:text-base">We'd love to hear from you. Questions, feedback, or just a hello!</p>
+    </div>
+
+    <section class="container mx-auto px-4 py-16">
+        <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+            
+            <div class="bg-semman-brown text-white p-10 md:w-2/5 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-serif font-bold mb-6">Contact Information</h3>
+                    <p class="text-gray-300 mb-8 text-sm leading-relaxed">Mfg & Mkd By: <br><span class="text-white font-bold">Semman Native Store</span></p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-4 text-semman-rust text-xl"></i>
+                            <div>
+                                <p class="font-bold text-sm uppercase tracking-wide text-gray-400">Address</p>
+                                <p class="text-white text-sm">2/193-A, Srinivasa Nagar, Pattanam Pudur, Pattanam (PO), Coimbatore – 641 016</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-phone mt-1 mr-4 text-semman-rust text-xl"></i>
+                            <div>
+                                <p class="font-bold text-sm uppercase tracking-wide text-gray-400">Phone</p>
+                                <p class="text-white">99946 43232</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-envelope mt-1 mr-4 text-semman-rust text-xl"></i>
+                            <div>
+                                <p class="font-bold text-sm uppercase tracking-wide text-gray-400">Email</p>
+                                <p class="text-white text-sm break-all">semmannnativestore@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <p class="font-bold mb-4 text-sm">Follow us</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center hover:bg-semman-rust hover:border-semman-rust transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center hover:bg-semman-rust hover:border-semman-rust transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-gray-500 flex items-center justify-center hover:bg-semman-rust hover:border-semman-rust transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-10 md:w-3/5 bg-white">
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div><label class="block text-sm font-bold text-semman-brown mb-2">First Name</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-semman-rust focus:bg-white transition" placeholder="John"></div>
+                        <div><label class="block text-sm font-bold text-semman-brown mb-2">Last Name</label><input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-semman-rust focus:bg-white transition" placeholder="Doe"></div>
+                    </div>
+                    <div class="mb-6"><label class="block text-sm font-bold text-semman-brown mb-2">Email Address</label><input type="email" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-semman-rust focus:bg-white transition" placeholder="john@example.com"></div>
+                    <div class="mb-6"><label class="block text-sm font-bold text-semman-brown mb-2">Subject</label><select class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-semman-rust focus:bg-white transition"><option>Order Inquiry</option><option>Bulk Order / Wholesale</option><option>Product Question</option><option>Other</option></select></div>
+                    <div class="mb-6"><label class="block text-sm font-bold text-semman-brown mb-2">Message</label><textarea rows="4" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-semman-rust focus:bg-white transition" placeholder="How can we help you?"></textarea></div>
+                    <button type="button" class="bg-semman-rust text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-semman-green transition w-full md:w-auto">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-semman-brown text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-serif text-xl font-bold mb-4 text-semman-rust">Semman</h3>
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">Bringing the goodness of native soil to your dining table.</p>
+                <div class="text-xs text-gray-400 space-y-2">
+                    <p><strong class="text-gray-200">Mfg & Mkd By:</strong><br>Semman Native Store</p>
+                    <p><i class="fa-solid fa-location-dot mr-1"></i> 2/193-A, Srinivasa Nagar, Pattanam Pudur, Pattanam (PO), Coimbatore – 641 016</p>
+                    <p><i class="fa-solid fa-phone mr-1"></i> 99946 43232</p>
+                    <p><i class="fa-solid fa-envelope mr-1"></i> semmannnativestore@gmail.com</p>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li><a href="shop.html" class="hover:text-semman-rust">Shop All</a></li>
+                    <li><a href="story.html" class="hover:text-semman-rust">Our Story</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Track Order</a></li>
+                    <li><a href="contact.html" class="hover:text-semman-rust">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Categories</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li><a href="#" class="hover:text-semman-rust">Cold Pressed Oils</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Native Rice</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Millets</a></li>
+                    <li><a href="#" class="hover:text-semman-rust">Spices & Masalas</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Stay Connected</h4>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white text-semman-brown flex items-center justify-center hover:bg-semman-rust hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p class="text-xs text-gray-400">&copy; 2025 Semman Natural Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => { mobileMenuPanel.classList.remove('-translate-x-full'); }, 10);
+        });
+
+        const closeMenu = () => {
+            mobileMenuPanel.classList.add('-translate-x-full');
+            setTimeout(() => { mobileMenu.classList.add('hidden'); }, 300);
+        };
+
+        closeMenuBtn.addEventListener('click', closeMenu);
+        mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMenu(); });
+    </script>
+</body>
+</html>
