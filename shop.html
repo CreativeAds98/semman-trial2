@@ -30,20 +30,16 @@
         }
     </script>
     <style>
-        /* Custom Scrollbar for horizontal scrolling areas */
-        .hide-scroll::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Smooth fade for modal */
+        .modal-transition { transition: opacity 0.3s ease-in-out; }
     </style>
 </head>
 <body class="bg-semman-base text-semman-brown font-sans antialiased relative">
 
     <div class="bg-semman-green text-white text-xs md:text-sm py-2 text-center font-medium tracking-wide">
-        <p>🌾 Native Fest is LIVE NOW! Get 12% OFF on traditional grains | Use Code: NATIVE12</p>
+        <p>🌾 Native Fest is LIVE NOW! Get 12% OFF on traditional grains | Use Code: </p>
     </div>
 
     <header class="border-b border-gray-200 sticky top-0 z-40 bg-semman-base shadow-sm">
@@ -67,7 +63,7 @@
             </div>
         </div>
         <nav class="hidden md:flex justify-center items-center py-3 space-x-8 text-sm font-semibold tracking-wide border-t border-gray-100">
-            <a href="index.html" class="flex items-center hover:text-semman-rust transition"><i class="fa-solid fa-bottle-droplet mr-2 text-semman-rust"></i> HOME</a>
+            <a href="index.html" class="flex items-center hover:text-semman-rust transition"><i class="fa-solid fa-house mr-2 text-semman-rust"></i> HOME</a>
             <a href="shop.html" class="flex items-center text-semman-rust font-bold">SHOP BY CATEGORY <i class="fa-solid fa-chevron-down ml-1 text-xs"></i></a>
             <a href="story.html" class="hover:text-semman-rust transition">OUR STORY</a>
             <a href="contact.html" class="flex items-center hover:text-semman-rust transition">CONTACT</a>
@@ -142,7 +138,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Cold Pressed Coconut Oil</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Extracted using traditional wooden cold-press. Supports heart health & hair nourishment.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">500ml</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('coconut')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -154,7 +150,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Cold Pressed Groundnut Oil</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">High smoke point, cholesterol-friendly. Ideal for Indian cooking & frying.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">1 Litre</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('groundnut')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -167,7 +163,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Cold Pressed Sesame Oil</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Traditional South Indian quality. Supports bone health & digestion.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">1 Litre</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('sesame')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -180,7 +176,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Premium Buffalo Ghee</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Rich texture & strong aroma. High energy source for sweets & curries.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">500ml</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('buffalo')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -192,7 +188,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Pure Cow Ghee</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Authentic Desi & Ayurvedic. Boosts immunity and digestion.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">500ml</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('cow')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -204,7 +200,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Fresh Coriander Powder</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Finely ground from premium seeds. Natural detox properties.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">200g</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('coriander')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -217,7 +213,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Natural Ragi Flour</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Stone-ground & calcium-rich. Ideal for porridge and dosa.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">1kg</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('ragi')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -229,7 +225,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Pure Red Chilli Powder</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Sun-dried red chillies. No artificial colors. Authentic spice.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">200g</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('chilli')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -241,7 +237,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Premium Gram Flour (Besan)</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Protein rich & gluten free. Great for snacks and skincare.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">500g</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('gram')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -253,7 +249,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Whole Wheat Flour</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Freshly milled stone-ground flour. High fiber for soft rotis.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">1kg</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('wheat')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -266,7 +262,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Pure Pasu Manjal</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Wild Turmeric for skincare. Antibacterial & antifungal.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">100g</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('pasumanjal')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -278,7 +274,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Herbal Night Cream</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Deep repair & nourishment. Improves skin texture & glow.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">50g</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('nightcream')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -291,7 +287,7 @@
                             <h3 class="font-bold text-lg text-semman-brown leading-tight mb-2">Traditional Health Mix</h3>
                             <p class="text-xs text-gray-500 mb-3 line-clamp-2">Millet & nut blend. Boosts immunity and digestion.</p>
                             <div class="flex justify-between items-center mt-auto"><span class="text-xs font-bold text-gray-400">500g</span><span class="font-bold text-semman-rust">₹</span></div>
-                            <button class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">ADD TO CART</button>
+                            <button onclick="openProductModal('healthmix')" class="w-full mt-3 border border-semman-rust text-semman-rust font-bold py-2 rounded-lg hover:bg-semman-rust hover:text-white transition text-sm">VIEW DETAILS</button>
                         </div>
                     </div>
 
@@ -299,6 +295,58 @@
             </main>
         </div>
     </section>
+
+    <div id="product-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeProductModal()"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full border-t-4 border-semman-rust">
+                
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none" onclick="closeProductModal()">
+                        <span class="sr-only">Close</span>
+                        <i class="fa-solid fa-times text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="sm:w-1/2 flex items-center justify-center bg-semman-base rounded-lg p-6 mr-6">
+                            <img id="modal-img" src="" alt="Product Image" class="max-h-80 object-contain mix-blend-multiply">
+                        </div>
+                        
+                        <div class="mt-3 text-left sm:mt-0 sm:w-1/2">
+                            <h3 class="text-2xl leading-6 font-serif font-bold text-semman-brown mb-2" id="modal-title">Product Title</h3>
+                            <p class="text-lg text-semman-rust font-bold mb-4" id="modal-price">₹0.00</p>
+                            
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-600 mb-4 leading-relaxed" id="modal-desc">Description goes here.</p>
+                                
+                                <h4 class="font-bold text-semman-brown text-sm uppercase tracking-wide mb-2"><i class="fa-solid fa-check text-semman-green mr-1"></i> Benefits:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600 mb-4 pl-2 space-y-1" id="modal-benefits">
+                                    </ul>
+
+                                <h4 class="font-bold text-semman-brown text-sm uppercase tracking-wide mb-2"><i class="fa-solid fa-spoon text-semman-rust mr-1"></i> Usage:</h4>
+                                <p class="text-sm text-gray-600 italic bg-orange-50 p-2 rounded border border-orange-100" id="modal-usage">Usage details here.</p>
+                            </div>
+
+                            <div class="mt-8 flex gap-4">
+                                <div class="flex items-center border border-gray-300 rounded-lg">
+                                    <button class="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-l-lg">-</button>
+                                    <input type="text" value="1" class="w-10 text-center text-sm outline-none">
+                                    <button class="px-3 py-1 text-gray-600 hover:bg-gray-100 rounded-r-lg">+</button>
+                                </div>
+                                <button class="flex-grow bg-semman-rust text-white font-bold py-2 px-4 rounded-lg hover:bg-semman-rustDark transition shadow-md">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-semman-brown text-white py-12">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -343,6 +391,7 @@
     </footer>
 
     <script>
+        // === MOBILE MENU LOGIC ===
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuPanel = document.getElementById('mobile-menu-panel');
@@ -363,8 +412,8 @@
         if(closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
         if(mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMenu(); });
 
+        // === FILTER LOGIC ===
         function filterProducts(category, element) {
-            console.log('Filtering by:', category);
             const products = document.querySelectorAll('#product-grid > div');
             const categoryLinks = document.querySelectorAll('.category-link');
 
@@ -385,6 +434,154 @@
                     product.style.display = 'none';
                 }
             });
+        }
+
+        // === PRODUCT DATABASE ===
+        const productsData = {
+            'coconut': {
+                title: "Pure Cold Pressed Coconut Oil",
+                price: "₹",
+                img: "assets/products/coconut-oil.png",
+                desc: "Our Cold Pressed Coconut Oil is extracted using traditional wooden cold-press methods without heat or chemicals. This process preserves natural aroma, essential fatty acids, and nutrients. Ideal for healthy cooking, hair nourishment, oil pulling, and skin care.",
+                benefits: ["Supports heart health", "Improves digestion", "Strengthens hair & nourishes skin", "Rich in natural antioxidants"],
+                usage: "Cooking, frying, hair oil, skin care, oil pulling"
+            },
+            'groundnut': {
+                title: "Traditional Cold Pressed Groundnut Oil",
+                price: "₹",
+                img: "assets/products/groundnut-oil.png",
+                desc: "Extracted from premium groundnuts using age-old cold press techniques, this oil retains natural taste, aroma, and nutrients. A heart-friendly oil suitable for everyday Indian cooking.",
+                benefits: ["Rich in healthy fats", "Enhances food taste", "Supports cholesterol balance", "High smoke point"],
+                usage: "Cooking, frying, sautéing"
+            },
+            'sesame': {
+                title: "Pure Cold Pressed Sesame Oil (Gingelly Oil)",
+                price: "₹",
+                img: "assets/products/sesamin-oil.png",
+                desc: "Our sesame oil is cold pressed from high-quality sesame seeds, preserving antioxidants and essential nutrients. Widely used in South Indian cooking and traditional wellness practices.",
+                benefits: ["Improves bone & joint health", "Good for digestion", "Supports skin & hair health", "Ideal for oil pulling"],
+                usage: "Cooking, oil pulling, massage, hair care"
+            },
+            'buffalo': {
+                title: "Premium Buffalo Ghee",
+                price: "₹",
+                img: "assets/products/buffalo-ghee.png",
+                desc: "Prepared using traditional methods from pure buffalo milk, this ghee has a rich texture and strong aroma. Ideal for sweets, curries, and deep cooking.",
+                benefits: ["High energy source", "Enhances flavor of dishes", "Long shelf life", "Rich in fat-soluble vitamins"],
+                usage: "Cooking, sweets, frying"
+            },
+            'cow': {
+                title: "Pure Cow Ghee (Desi)",
+                price: "₹",
+                img: "assets/products/cowghee.png",
+                desc: "Made from high-quality cow milk, this ghee follows traditional preparation techniques. Known for its digestive and medicinal benefits in Ayurveda.",
+                benefits: ["Improves digestion", "Boosts immunity", "Supports brain health", "Suitable for daily use"],
+                usage: "Cooking, ayurvedic use, baby food"
+            },
+            'coriander': {
+                title: "Fresh Coriander Powder",
+                price: "₹",
+                img: "assets/products/coriandel-powder.png",
+                desc: "Prepared from carefully selected coriander seeds, finely ground to retain natural aroma and flavor. Enhances taste and digestion.",
+                benefits: ["Improves digestion", "Enhances flavor", "Natural detox properties"],
+                usage: "Curries, gravies, spice blends"
+            },
+            'ragi': {
+                title: "Natural Ragi Flour",
+                price: "₹",
+                img: "assets/products/rahi-flour.png",
+                desc: "Stone-ground from premium ragi grains, this flour retains essential nutrients. Ideal for health-conscious families and traditional diets.",
+                benefits: ["High in calcium", "Good for diabetics", "Supports weight management", "Strengthens bones"],
+                usage: "Ragi dosa, porridge, roti"
+            },
+            'chilli': {
+                title: "Pure Red Chilli Powder",
+                price: "₹",
+                img: "assets/products/chilli-powder.png",
+                desc: "Made from sun-dried red chillies, ground without artificial color or additives. Delivers rich color and authentic spice.",
+                benefits: ["Enhances taste", "Natural metabolism booster", "No artificial colors"],
+                usage: "Curries, marinades, masala"
+            },
+            'gram': {
+                title: "Premium Gram Flour (Besan)",
+                price: "₹",
+                img: "assets/products/gram-flour.png",
+                desc: "Finely milled from quality chickpeas, gram flour is rich in protein and ideal for cooking and skincare uses.",
+                benefits: ["High protein", "Gluten free", "Good for skin & hair"],
+                usage: "Snacks, curries, face packs"
+            },
+            'wheat': {
+                title: "Whole Wheat Flour",
+                price: "₹",
+                img: "assets/products/weatflour.png",
+                desc: "Stone-ground wheat flour retaining natural fiber and nutrients, ensuring soft rotis and healthy meals.",
+                benefits: ["Rich in fiber", "Supports digestion", "Energy giving food"],
+                usage: "Chapati, roti, baking"
+            },
+            'pasumanjal': {
+                title: "Pure Pasu Manjal (Wild Turmeric)",
+                price: "₹",
+                img: "assets/products/pasumanjal.png",
+                desc: "Traditionally used for skincare, rituals, and wellness. Known for its antibacterial, antifungal, and healing properties.",
+                benefits: ["Improves skin health", "Natural antiseptic", "Reduces skin infections"],
+                usage: "Face packs, bath powder, rituals"
+            },
+            'nightcream': {
+                title: "Herbal Night Cream",
+                price: "₹",
+                img: "assets/products/night-cream.png",
+                desc: "A gentle herbal night cream formulated to repair skin overnight, improve texture, and restore natural glow.",
+                benefits: ["Repairs skin overnight", "Reduces dryness", "Improves skin tone"],
+                usage: "Apply at night on clean skin"
+            },
+            'healthmix': {
+                title: "Traditional Health Mix",
+                price: "₹",
+                img: "assets/products/healthmix.png",
+                desc: "A wholesome blend of millets, grains, pulses, and nuts designed to support immunity, digestion, and daily energy needs.",
+                benefits: ["Boosts immunity", "Improves digestion", "Rich in vitamins & minerals"],
+                usage: "Mix with hot water or milk"
+            }
+        };
+
+        // === MODAL LOGIC ===
+        const modal = document.getElementById('product-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalImg = document.getElementById('modal-img');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalBenefits = document.getElementById('modal-benefits');
+        const modalUsage = document.getElementById('modal-usage');
+
+        function openProductModal(productId) {
+            const data = productsData[productId];
+            if(data) {
+                // Populate data
+                modalTitle.textContent = data.title;
+                modalPrice.textContent = data.price;
+                modalImg.src = data.img;
+                modalDesc.textContent = data.desc;
+                modalUsage.textContent = data.usage;
+
+                // Populate list
+                modalBenefits.innerHTML = '';
+                data.benefits.forEach(benefit => {
+                    const li = document.createElement('li');
+                    li.textContent = benefit;
+                    modalBenefits.appendChild(li);
+                });
+
+                // Show modal
+                modal.classList.remove('hidden');
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeProductModal() {
+            modal.classList.add('hidden');
+            // Re-enable background scrolling
+            document.body.style.overflow = 'auto';
         }
     </script>
 </body>
